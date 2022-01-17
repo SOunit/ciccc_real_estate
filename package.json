@@ -1,0 +1,23 @@
+{
+  "name": "ciccc_real_estate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass scss/ --output css/ --output-style compressed --watch --source-map true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SOunit/ciccc_real_estate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SOunit/ciccc_real_estate/issues"
+  },
+  "homepage": "https://github.com/SOunit/ciccc_real_estate#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
