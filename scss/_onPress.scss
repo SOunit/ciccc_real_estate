@@ -19,33 +19,31 @@
         hue-rotate(0deg);
     }
   }
-}
 
-.press__icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
+  .press__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 40rem) {
   .press-section {
     padding: 2rem;
-  }
 
-  .press__title {
-    margin: 0;
-  }
+    .press__title {
+      margin: 0;
+    }
 
-  .press-section {
     .image-container {
       width: 20%;
     }
-  }
 
-  .press__icons {
-    flex-direction: row;
-    justify-content: space-around;
+    .press__icons {
+      flex-direction: row;
+      justify-content: space-around;
+    }
   }
 }
