@@ -1,0 +1,196 @@
+// 0 - 768px apply
+
+.featured-listings {
+  text-align: center;
+  margin-top: 100px;
+  p {
+    font-size: 17px;
+    color: $color-brown;
+  }
+  h1 {
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 80px;
+  }
+
+  &-flex {
+    display: block;
+
+    &-each {
+      margin: 10px 0px;
+      img {
+        width: 95%;
+      }
+      h2 {
+        font-size: 20px;
+        color: $color-brown;
+        padding: 30px 0px;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: 900;
+      }
+      h4 {
+        font-size: 16px;
+        margin: 20px 0px;
+      }
+    }
+  }
+
+  button {
+    font-weight: 500;
+    line-height: 1em;
+    letter-spacing: 0.7px;
+    fill: #03b5c3;
+    color: #03b5c3;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #03b5c3;
+    border-radius: 3px 3px 3px 3px;
+    padding: 14px 34px 14px 34px;
+    width: 60vw;
+    height: 60px;
+    font-size: 15px;
+    margin: 60px 0px;
+  }
+}
+
+.person {
+  display: block;
+  text-align: center;
+  padding: 50px 0px;
+
+  &-flex {
+    img {
+      width: 50%;
+    }
+
+    &-each {
+      text-align: left;
+      padding: 15px;
+      h2 {
+        color: $color-brown;
+        font-size: 17px;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: 900;
+        padding: 15px 0px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// 1000px or 1200px
+@media (min-widht: 60rem) and (max-width: 80rem) {
+}
+
+// 768px or more -> apply
+// 40rem * 16px = 680px
+@media (min-width: 40rem) {
+  .featured-listings {
+    text-align: center;
+    margin-top: 100px;
+
+    p {
+      font-size: 17px;
+      color: $color-brown;
+    }
+    h1 {
+      font-size: 45px;
+      font-weight: 900;
+      margin-bottom: 80px;
+    }
+
+    &-flex {
+      display: flex;
+      justify-content: space-around;
+      padding: 0px 10vw;
+
+      &-each {
+        margin: 10px 0px;
+        width: 432px;
+        img {
+          width: 90%;
+        }
+        h2 {
+          font-size: 24px;
+          color: $color-brown;
+          padding: 30px 0px;
+          font-weight: 700;
+        }
+        h3 {
+          font-size: 24px;
+          font-weight: 900;
+        }
+        h4 {
+          font-size: 16px;
+          margin: 20px 0px;
+        }
+      }
+    }
+
+    button {
+      font-weight: 500;
+      line-height: 1em;
+      letter-spacing: 0.7px;
+      fill: #03b5c3;
+      color: #03b5c3;
+      background-color: #ffffff;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      border-color: #03b5c3;
+      border-radius: 3px 3px 3px 3px;
+      padding: 14px 34px 14px 34px;
+      width: 30vw;
+      height: 60px;
+      font-size: 15px;
+      margin: 80px 0px;
+    }
+  }
+
+  .person {
+    display: block;
+    text-align: center;
+    padding: 150px 0px;
+
+    &-flex {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+
+      img {
+        width: 25%;
+      }
+
+      &-each {
+        text-align: left;
+        padding: 15px;
+        width: 40vw;
+        margin-right: 100px;
+
+        h2 {
+          color: $color-brown;
+          font-size: 17px;
+          font-weight: 600;
+        }
+        h1 {
+          font-size: 35px;
+          font-weight: 900;
+          padding: 15px 0px;
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
