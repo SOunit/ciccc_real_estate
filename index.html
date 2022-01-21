@@ -12,9 +12,71 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   </head>
   <body>
-    <h1>test</h1>
+    <header class="l-header">
+      <div class="c-bar">
+        <div class="c-bar__number">
+          <i class="fas fa-phone-volume" style="margin-right: 5px"></i
+          >605-123-4567
+        </div>
+      </div>
+      <nav class="nav">
+        <div class="nav-left">
+          <ul>
+            <li class="logo">
+              <a href="#"
+                ><img src="images/截屏2021-09-24-下午4.49.26.png" alt="logo"
+              /></a>
+            </li>
+            <ul class="menu">
+              <li><a href="">PROPERTIES</a></li>
+              <li><a href="">MARKET UPDATE</a></li>
+              <li><a href="">RESOURCES</a></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <ul>
+            <li>
+              <a href="#">Login / Register</a>
+            </li>
+          </ul>
+        </div>
+        <div id="showLeftPush" class="show-hide only-sp">
+          <i id="showLeftPushIcon" class="fas fa-bars"></i>
+        </div>
+      </nav>
+      <div id="nav-mobile" class="nav-mobile only-sp menu-trigger hidden">
+        <ul class="nav-mobile__menu">
+          <li><a href="#">PROPERTIES</a></li>
+          <li><a href="#">MARKET UPDATE</a></li>
+          <li><a href="#">RESOURCES</a></li>
+          <li id="close" style="border-bottom: none">
+            <a href="#"><i class="fas fa-times"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="c-video">
+        <div class="c-video__title">
+          <h2 class="sub-title">YOUR VANCOUVER REAL ESTATE EXPERT</h2>
+          <h1 class="title">EMILY ZHU PREC</h1>
+          <p class="content-txt">
+            Whether you’re looking to buy or sell in Vancouver, you’ve come to
+            the right place.
+          </p>
+          <div class="c-video__btns">
+            <p class="c-video__btns__view"><a href="#">View Our Listings</a></p>
+            <p class="c-video__btns__search"><a href="#">Search the MLS</a></p>
+          </div>
+        </div>
+        <div class="c-video__frame">
+          <div id="js-youtube"></div>
+        </div>
+        <div class="c-video__overlay"></div>
+      </div>
+    </header>
     <section class="press-section">
       <div class="content">
         <h2 class="press__title">In The Press</h2>
@@ -89,5 +151,116 @@
         </p>
       </div>
     </footer>
+    <script>
+      class Main {
+        constructor() {
+          this.createModel();
+          this.initMethods();
+        }
+
+        createModel() {
+          this.ytPlayer = null;
+          this.ytID = "ZuiurycfsdQ";
+          this.played = false;
+        }
+
+        initMethods() {
+          this.addYoutubeScript();
+          this.onYouTubeIframeAPIReady();
+        }
+
+        //YouTube IFrame Player APIを読み込み
+        addYoutubeScript() {
+          const $youtube_elem = $("#js-youtube");
+          if (!$youtube_elem[0]) {
+            return;
+          }
+
+          const tag = document.createElement("script");
+          tag.src = "//www.youtube.com/iframe_api";
+          const firstScriptTag = document.getElementsByTagName("script")[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+
+        //動画を再生
+        onYouTubeIframeAPIReady() {
+          const $player = $("#js-youtube");
+          if (!$player[0]) {
+            return;
+          }
+          $(window).on("load", () => {
+            this.ytPlayer = new YT.Player("js-youtube", {
+              videoId: this.ytID,
+              playerVars: {
+                start: 40, // 動画開始位置
+                rel: 0, // 関連動画の非表示
+                controls: 0, // プレイヤーコントロールの非表示
+                disablekb: 1, // キーボード操作をオフ
+                showinfo: 0, // タイトルなどの非表示
+                modestbranding: 1, // YouTubeロゴの非表示
+                iv_load_policy: 3, // アノテーションの非表示
+                fs: 0, //全画面表示ボタンの非表示
+                autoplay: 1, //自動再生
+                playsinline: 1, //インライン再生
+                loop: 0, //ループ
+              },
+              events: {
+                onReady: this.onPlayerReady,
+                onStateChange: (e) => {
+                  this.onPlayerStateChange(e);
+                },
+              },
+            });
+          });
+        }
+
+        //動画の準備完了後の動作
+        onPlayerReady(e) {
+          e.target.setPlaybackQuality("highres");
+          e.target.mute();
+          e.target.playVideo();
+        }
+
+        //動画再生中の操作
+        onPlayerStateChange(e) {
+          const ytStatus = e.target.getPlayerState();
+          //再生中
+          if (ytStatus == YT.PlayerState.PLAYING) {
+            //フェードイン
+            const $player = $("#js-youtube");
+            $player.parent().addClass("is-loaded");
+
+            //ループ処理
+            if (!this.played) {
+              this.played = true;
+              //動画の長さ（秒）を取得
+              const duration = this.ytPlayer.getDuration();
+
+              const timer = setInterval(() => {
+                this.ytPlayer.seekTo(0);
+                this.ytPlayer.playVideo();
+              }, parseInt(duration * 1000));
+            }
+          }
+        }
+      }
+
+      new Main();
+    </script>
+    <script>
+      const target = document.getElementById("showLeftPush");
+      const onMenu = document.getElementById("nav-mobile");
+      const offMenu = document.getElementById("close");
+
+      target.addEventListener("click", function () {
+        onMenu.classList.add("active");
+      });
+
+      offMenu.addEventListener("click", function () {
+        if (onMenu.classList.contains("active") === true) {
+          onMenu.classList.remove("active");
+        }
+      });
+    </script>
   </body>
 </html>

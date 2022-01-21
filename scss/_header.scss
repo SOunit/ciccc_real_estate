@@ -1,0 +1,256 @@
+.only-sp {
+  display: none;
+}
+.l-header {
+  position: relative;
+  .c-bar {
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    width: 100%;
+    height: 3rem;
+    &__number {
+      position: absolute;
+      right: 4rem;
+      top: 1rem;
+      font-size: small;
+      font-weight: 0;
+    }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-size: small;
+    margin-top: 2.5rem;
+    &-left {
+      ul {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        .logo {
+          margin-right: 1.5rem;
+          padding-top: 2rem;
+          img {
+            width: 10rem;
+          }
+        }
+        .menu {
+          li {
+            margin-right: 1.5rem;
+            color: #fff;
+            padding-top: 2rem;
+            &:hover {
+              border-top: solid 0.3rem #03b5c3;
+            }
+          }
+        }
+      }
+    }
+    &-right {
+      padding-top: 2rem;
+      color: #fff;
+      opacity: 0.8;
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+.c-video {
+  position: relative;
+  width: 100%;
+  &__title {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    .sub-title {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .title {
+      font-size: 4.5rem;
+      font-weight: 600;
+      letter-spacing: -3px;
+    }
+    .title,
+    .content-txt {
+      font-family: "Poppins", Sans-serif;
+      text-align: center;
+    }
+    .content-txt {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+  }
+  &__btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    p {
+      font-family: "Poppins", Sans-serif;
+      font-size: inherit;
+      width: 250px;
+      font-weight: 500;
+      line-height: 1em;
+      letter-spacing: 0.7px;
+      border-radius: 3px 3px 3px 3px;
+      padding: 18px 40px 18px 40px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &__view {
+      background-color: #03b5c3;
+      margin-right: 5rem;
+    }
+    &__search {
+      background-color: #fff;
+      color: #03b5c3;
+    }
+  }
+  &__frame {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    background: #000;
+
+    &.is-loaded {
+      iframe {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  iframe {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 120px);
+    -webkit-transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    -webkit-transition-property: opacity, visibility;
+    transition-property: opacity, visibility;
+  }
+  &__overlay {
+    background-color: #010026;
+    opacity: 0.65;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .only-sp {
+    display: block;
+  }
+  .l-header {
+    background-image: url(../images/aerial-view-luxury-homes-british-properties-west-vancouver-bc-canada-aerial-view-luxury-homes-british-properties-west-225869688.jpg);
+    width: 100%;
+    height: 100vh;
+    .nav {
+      padding: 0 80px 0 30px;
+      &-left {
+        .menu {
+          display: none;
+        }
+      }
+      &-mobile {
+        background-color: #fff;
+        width: 40%;
+        height: 100vh;
+        z-index: 99;
+        position: absolute;
+        right: 0;
+        padding: 50px 0;
+        &__menu {
+          li {
+            padding: 20px;
+            color: rgba(156, 149, 149, 0.788);
+            font-size: small;
+            border-bottom: 1px solid rgba(184, 177, 177, 0.726);
+            &:hover {
+              color: gray;
+            }
+          }
+        }
+      }
+      .show-hide {
+        top: 42px;
+        right: 20px;
+        background: #03b5c3;
+        display: inline-block;
+        position: absolute;
+        font-size: 16px;
+        border-radius: 3px;
+        padding: 3px 12px;
+        color: #fff;
+      }
+    }
+  }
+  .c-video {
+    position: static;
+    &__frame {
+      display: none;
+    }
+    &__btns {
+      display: block;
+      margin-top: 60px;
+      p {
+        margin: 0 auto 20px;
+      }
+    }
+    &__overlay {
+      height: 100vh;
+    }
+    &__title {
+      width: 80%;
+      top: 50%;
+      .sub-title {
+        font-size: 16px;
+      }
+      .title {
+        font-size: 50px;
+      }
+    }
+  }
+
+  //test
+  .menu-trigger,
+  .menu-trigger ul li {
+    transition: all 0.4s;
+    box-sizing: border-box;
+  }
+  .hidden {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+}
