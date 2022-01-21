@@ -1,0 +1,164 @@
+.hero {
+  position: relative;
+  height: 900px;
+  margin-top: -25px;
+
+  img {
+    width: 100vw;
+    height: 900px;
+  }
+}
+
+.hero > li {
+  position: absolute;
+  list-style: none;
+  visibility: hidden;
+  animation: slide 21s 0s infinite;
+}
+.hero > li:nth-of-type(2) {
+  animation-delay: 7s;
+}
+.hero > li:nth-of-type(3) {
+  animation-delay: 14s;
+}
+.hero > li:nth-of-type(4) {
+  animation-delay: 21s;
+}
+
+@keyframes slide {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.background-mobile {
+  display: none;
+}
+
+.background {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 900px;
+}
+
+.hero-contents {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 95px;
+    display: inline-block;
+  }
+}
+
+p.contents-p1 {
+  font-family: "Arial Narrow Bold", sans-serif;
+  font-size: 25px;
+  font-weight: 100;
+  opacity: 0.8;
+}
+
+p.contents-p2 {
+  font-family: "Arial Narrow Bold", sans-serif;
+  font-size: 25px;
+  font-weight: 100;
+  opacity: 0.8;
+}
+
+.hero-button {
+  margin-top: 90px;
+
+  button {
+    width: 240px;
+    height: 55px;
+    border-radius: 3px;
+    font-size: 17px;
+  }
+
+  & :hover {
+    opacity: 0.8;
+  }
+}
+
+button.button1 {
+  background-color: rgb(58, 158, 173);
+  color: white;
+  border: none;
+  margin-right: 30px;
+}
+
+button.button2 {
+  background-color: white;
+  color: rgb(58, 158, 173);
+  border: none;
+}
+
+@media (max-width: 40rem) {
+  .hero > li {
+    display: none;
+  }
+
+  .background-mobile {
+    display: block;
+    position: absolute;
+  }
+
+  .hero-contents {
+    line-height: normal;
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
+    }
+  }
+
+  p.contents-p1 {
+    font-family: "Arial Narrow Bold", sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    opacity: 0.8;
+  }
+
+  p.contents-p2 {
+    font-family: "Arial Narrow Bold", sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    opacity: 0.8;
+  }
+
+  .hero-button {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+  }
+
+  img.background-mobile {
+    max-width: 40rem;
+  }
+
+  .hero {
+    position: relative;
+
+    img {
+      width: 100vw;
+    }
+  }
+}

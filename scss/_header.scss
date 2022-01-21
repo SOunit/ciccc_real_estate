@@ -32,7 +32,7 @@
     top: 0;
     width: 100%;
     font-size: small;
-    margin-top: 2.5rem;
+    margin-top: 4rem;
     &-left {
       ul {
         display: flex;
@@ -171,9 +171,9 @@
     display: block;
   }
   .l-header {
-    background-image: url(../images/aerial-view-luxury-homes-british-properties-west-vancouver-bc-canada-aerial-view-luxury-homes-british-properties-west-225869688.jpg);
-    width: 100%;
-    height: 100vh;
+    // background-image: url(../images/aerial-view-luxury-homes-british-properties-west-vancouver-bc-canada-aerial-view-luxury-homes-british-properties-west-225869688.jpg);
+    // width: 100%;
+    // height: 100vh;
     .nav {
       padding: 0 80px 0 30px;
       &-left {
@@ -188,7 +188,7 @@
         z-index: 99;
         position: absolute;
         right: 0;
-        padding: 50px 0;
+        padding: 73px 0;
         &__menu {
           li {
             padding: 20px;
